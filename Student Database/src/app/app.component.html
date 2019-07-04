@@ -1,0 +1,19 @@
+<div class = "topbar">
+			<img routerLink="" title="Made for the University of Southern Denmark." src="img/sdulogo.png">
+	<div *ngIf="isLoggedIn()" class="dropdown">
+			
+		<button type="button" class="btn-settings">
+				<i class="fa fa-cog fa-3x" aria-hidden="true"></i>
+		</button>
+
+
+		<div class="dropdown-content">
+			<a class="styled-link" routerLink="/profile/{{userID}}">Profile</a>
+			<a class="styled-link" routerLink="/settings">Settings</a>
+			<a class="styled-link" routerLink="/login" (click)="logout()">Logout</a>
+		</div>
+
+	</div>
+</div>
+
+<router-outlet></router-outlet>

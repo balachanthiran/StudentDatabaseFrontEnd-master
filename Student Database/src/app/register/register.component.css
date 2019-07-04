@@ -1,0 +1,154 @@
+#register {
+    width: 500px;
+    margin: auto;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+h1::before {
+    content: "\f2bc";
+    font-family: "FontAwesome";
+}
+
+.registerinput {
+    margin-top: 10px;
+}
+
+/* Input icons: */
+.registerinput:nth-child(1)::before{
+	content: "\f129";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 25px;
+	color: #19a0da;
+	padding-left: 13px;
+    padding-top: 32px;
+
+}
+.registerinput:nth-child(2)::before{
+	content: "\f129";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 25px;
+	color: #19a0da;
+	padding-left: 13px;
+    padding-top: 32px;
+
+}
+
+.registerinput:nth-child(3)::before{
+	content: "\f0e0";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 25px;
+	color: #19a0da;
+	padding-left: 6px;
+    padding-top: 32px;
+
+}
+
+.registerinput:nth-child(4)::before{
+	content: "\f023";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 30px;
+	color: #19a0da;
+	padding-left: 8px;
+    padding-top: 32px;
+
+}
+
+.registerinput:nth-child(5)::before{
+	content: "\f29a";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 25px;
+	color: #19a0da;
+	padding-left: 6px;
+    padding-top: 32px;
+
+}
+
+.registerinput:nth-child(6)::before{
+	content: "\f1fd";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 25px;
+	color: #19a0da;
+	padding-left: 6px;
+    padding-top: 32px;
+
+}
+
+.registerinput:nth-child(7)::before{
+	content: "\f024";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 25px;
+	color: #19a0da;
+	padding-left: 6px;
+    padding-top: 32px;
+
+}
+.registerinput:nth-child(8)::before{
+	content: "\f19c";
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 25px;
+	color: #19a0da;
+	padding-left: 6px;
+    padding-top: 32px;
+
+}
+
+/* Input css */
+input {
+	height: 35px;
+	font-size: 18px;
+	border-radius: 4px;
+    border: 3px solid #ccc;
+	background-color: #fff;
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 35px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+input:focus, .selectinput:focus{
+    outline: none;
+    border-color: #19a0da
+}
+
+.selectinput{
+    display: block;
+    border-radius: 4px;
+    height: 35px;
+    margin-top: 10px;
+    padding-left: 35px;
+    width: 100%;
+    border: 3px solid #ccc;
+	background-color: #fff;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+label {
+    color: black;
+    font-weight: bold;
+}
+
+#submit-div{
+    text-align: center;
+}
+
+.loader{
+    margin-top: 20px;
+    border: 5px solid black; 
+    border-top: 5px solid #19a0da;
+}
+
+

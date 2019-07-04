@@ -1,0 +1,70 @@
+.logincontainer{
+	width: 500px;
+	height: 500px;
+	text-align: center;
+	background-color: #000;
+	border-radius: 250px;
+	margin: 0 auto;
+	margin-top: 150px;
+	position: relative;
+
+
+}
+
+.logincontainer img{
+	width: 120px;
+	height: 120px;
+	margin-top: -55px;
+	margin-bottom: 80px;
+}
+
+.logincontainer a{
+	color: white;
+	margin-top: 150px;
+
+}
+
+
+.logincontainer input[name="password"]{
+	margin-top: 20px;
+
+}
+
+#loginError{
+	margin-bottom: 14px;
+}
+
+input {
+	height: 40px;
+	width: 300px;
+	font-size: 18px;
+	border-radius: 4px;
+	border: 3px solid #ccc;
+	background-color: #fff;
+	padding-left: 40px;
+	transition: 0.5s;
+}
+
+input:focus{
+    outline: none;
+    border-color: #19a0da;
+}
+
+.form-input::before{
+	content: "\f0e0";
+	position: absolute;
+	left: 75px;
+	font-family: "FontAwesome";
+	font-size: 30px;
+	color: #19a0da;
+	padding-left: 7px;
+	padding-top: 6px;
+
+}
+
+.form-input:nth-child(2)::before{
+	content: "\f023";
+	padding-top: 27px;
+	font-size: 35px;
+	left: 79px;
+}

@@ -1,0 +1,29 @@
+<div class="logincontainer">
+	<img src="img/profilepic.png">
+	<form #form="ngForm" novalidate (ngSubmit)="authorize(form);">
+		<div class="form-input">
+			<input #email type="text" name="email" (keydown)="isAuthorized=true" placeholder="Enter E-mail" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+			 ngModel>
+			<div class="alert-danger" [hidden]="!form.submitted || !form.controls.email.errors ">
+				{{emailError}}
+			</div>
+		</div>
+
+		<div class="form-input">
+			<input #password type="password" name="password" (keydown)="isAuthorized=true" placeholder="Enter Password" required ngModel>
+			<div [hidden]="!form.submitted || !form.controls.password.errors" class="alert-danger">
+				Please enter your password
+			</div>
+		</div>
+		<button type="submit" class="btn-submit" [hidden]="isLoading">LOGIN</button>
+		<div class="alert-danger" id="loginError" [hidden]="isAuthorized">
+			{{loginError}}
+		</div>
+		<div class="loader" [hidden]="!isLoading">
+		</div>
+	</form>
+
+	<a [routerLink]="['/register']" class="btn btn-link">Create Account</a><br>
+
+	<a id="forgotPassword" href="#">Forgot Password?</a>
+</div>

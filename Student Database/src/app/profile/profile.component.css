@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+
+
+/* Cover Picture */
+.pic_base{
+    background: url('http://www.technocrazed.com/wp-content/uploads/2015/12/beautiful-wallpaper-download-13.jpg') center top;
+    position: absolute;
+    height: 360px;
+    width: 100%;
+    z-index: -1;
+    background-color: #34495e;
+}
+
+/* Profile div */
+#profile {   
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 260px;
+    margin-bottom: 30px;
+}
+
+
+#leftHeader {
+    text-align: center;
+    width: 300px;
+}
+
+#rightHeader {
+    text-align: center;
+    width: 300px;
+}
+
+/* Profile Picture */
+.profilepic {
+    margin-bottom: 10px;
+    width: 200px;
+    height: 200px;
+    margin-left: 75px;
+}
+
+.image {
+    border-radius: 200px;
+    width: 200px;
+    height: 200px;
+    background-size: 240px;
+    border-style: none;
+    border: 2px solid black;
+    outline: none;
+    cursor: pointer;
+}
+
+.imagenohover {
+    border-radius: 200px;
+    width: 200px;
+    height: 200px;
+    background-size: 240px;
+    border-style: none;
+    border: 2px solid black;
+    outline: none;
+}
+
+
+#uploadinput {
+    padding: 5px;
+    background-color: rgba(0, 15, 15, 0.3);
+    color: #000;
+    border-color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#pencilicon {
+    position: absolute;
+    margin-left: 85px;
+    margin-top: 85px;
+    font-size: 50px;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity .2s, visibility .2s;
+
+}
+
+.profilepic:hover #pencilicon {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+#uploadinput{  
+    position: absolute;
+    opacity: 0;
+    z-index: 87; 
+    text-align: left;
+}
+
+/* Name */
+#name {
+    margin-bottom: 10px;
+    font-size: 50px;
+    color: black;
+    font-family: 'Merriweather', serif;
+}
+
+#nameEdit {
+    height: 55px;
+    margin-left: 500px;
+    margin-top: 100px;
+	font-size: 50px;
+	border-radius: 4px;
+    border: 3px solid #ccc;
+	background-color: #fff;
+    width: auto;
+    box-sizing: border-box;
+    transition: 0.5s;  
+    text-align: center;
+}
+
+/* Information table */
+td:first-of-type {
+    text-align: left;
+    width: 175px;
+}
+
+#tblInfo {
+    text-align: left;
+    border: 1px solid;
+    border-radius: 5px;
+    min-width: 300px;
+}
+
+
+/* Icons */
+#hat::before {
+    content: "\f19d";
+    font-family: "FontAwesome";
+    font-size: 50px;
+}
+
+#envelope::before {
+    content: "\f0e0";
+    font-family: "FontAwesome";
+    color: #19a0da;
+}
+
+#university::before {
+    content:"\f19c";
+    font-family: "FontAwesome";
+    color: #19a0da;
+}
+
+#birthdayCake::before {
+    content:"\f1fd";
+    font-family: "FontAwesome";
+    color: #19a0da;
+}
+
+#flag::before {
+    content:"\f024";
+    font-family: "FontAwesome";
+    color: #19a0da;
+}
+
+#gender::before {
+    content: "\f29a";
+    font-family: "FontAwesome";
+    color: #19a0da;
+}
+
+#facultyHat::before {
+    content: "\f19d";
+    font-family: "FontAwesome";
+    color: #19a0da;
+}
+
+#book::before {
+    content: "\f02d";
+    font-family: "FontAwesome";
+    color: #19a0da;
+}
+
+/* Additional information */
+#additionalinfoContainer{
+    text-align: center; 
+}
+/* LANGUAGES, STUDIES, & SKILLS */
+#languages {
+    padding-right: 125px;
+}
+
+#languageLabel {
+    color: gray;
+    font-style: italic;
+    font-size: 14px;
+}
+
+#languageLevel {
+    font-size: 12px;
+}
+
+#studies {
+    padding-right: 125px;
+    min-width: 350px;
+}
+
+.skillList, #languageList, #otherStudyField{
+    text-align: center;
+    width: 300px;
+    padding: 3px;
+    border-radius: 4px;
+    box-shadow: 0 3px #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color: #000;
+    border: none;
+    outline: none;
+    cursor: text;
+    
+}
+
+.skillList ul {
+    padding: 0;
+}
+
+#skillInputField{
+    border: none;
+    line-height: 50px;
+    outline: none;
+    background-color: transparent;
+}
+
+#skillLevel {
+    font-size: 12px;
+}
+
+.chip {
+    display: inline-block;
+    width: 225px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background: #19a0da;
+    color: white;
+    padding: 5px 20px 5px 20px;
+    border-radius: 25px;
+    position: relative;
+    text-transform: capitalize;
+}
+
+#skillInput {
+    display: inline-block;
+    width: 120px;
+}
+.addBtn::after {
+    content: "\f0fe";
+    font-family: "FontAwesome";
+    color: forestgreen;
+    cursor: pointer;
+    font-size: 30px;
+
+}
+
+.removeBtn::after {
+    content: "\f057";
+    font-family: "FontAwesome";
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+.radioLabel {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#talk::before {
+    content: "\f0e6";
+    font-family: "FontAwesome";
+    font-size: 50px;
+    color: #19a0da;
+    
+}
+
+#hat::before {
+    content: "\f19d";
+    font-family: "FontAwesome";
+    font-size: 50px;
+}
+
+#lightbulb::before {
+    content: "\f0eb";
+    font-family: "FontAwesome";
+    font-size: 50px;
+    color: darkgoldenrod;
+}
+
+/* Skill search list*/
+#searchSkillResult {
+    position: absolute;
+    left: 60%;
+    list-style-type: none;
+
+}
+
+
+#newSkillList {
+    border-radius: 5px;
+    text-align: left;
+    list-style: none;
+    color: black;
+    background-color: rgba(0, 0, 0, .3);
+    padding: 0;
+    text-indent: 3px;
+}
+
+#newSkillList li {
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+
+}
+#newSkillList li:hover {
+   
+    border-radius: 5px;
+    background-color: #19a0da;
+    color: white;
+    cursor: pointer;
+    
+}
+
+/* Edit and save button */
+.btn-edit {
+    margin-left: 450px;
+    border-radius: 2px;
+    background-color: #FA3131;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    width: 100px;
+    padding: 14px 22px;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn-save {
+    border-radius: 2px;
+    background-color: #6caee0 ;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    width: 100px;
+    padding: 14px 22px;
+    border: 0;
+    cursor: pointer;
+}
+
+#submit-div {
+    margin-top: 100px;
+}
+
+/* Facebook & linkedin */
+
+#facebook::before {
+    content: "\f082";
+    font-family: "FontAwesome";
+    font-size: 30px;
+    color: #3b5998;
+}
+
+#linkedin::before {
+    content: "\f08c";
+    font-family: "FontAwesome";
+    font-size: 30px;
+    color: #0073b0;
+}
+
+.linkInput {
+    border-radius: 5px;
+    outline: none;
+}
+a {
+    text-decoration:none; 
+}

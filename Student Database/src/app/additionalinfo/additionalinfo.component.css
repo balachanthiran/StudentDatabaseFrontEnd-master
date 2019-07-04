@@ -1,0 +1,178 @@
+#additionalinfo{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#leftHeader {
+    text-align: center;
+    width: 300px;
+}
+
+#rightHeader {
+    text-align: center;
+    width: 300px;
+}
+
+/* LANGUAGES, STUDIES, & SKILLS */
+#languages {
+    padding-right: 125px;
+}
+
+#languageLabel {
+    color: gray;
+    font-style: italic;
+    font-size: 14px;
+}
+
+#studies {
+    text-align: center;
+    padding-right: 125px;
+    min-width: 350px;
+}
+
+#skillList, #languageList, #otherStudyField{
+    text-align: center;
+    width: 300px;
+    padding: 3px;
+    border-radius: 4px;
+    box-shadow: 0 3px #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color: #000;
+    border: none;
+    outline: none;
+    cursor: text;
+    
+}
+
+.skillInputField{
+    border: none;
+    line-height: 50px;
+    outline: none;
+    background-color: transparent;
+}
+
+.chip {
+    margin: 0 auto;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background: #19a0da;
+    color: white;
+    padding: 5px 20px 5px 20px;
+    border-radius: 25px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+}
+
+#skillInput {
+    display: inline-block;
+    width: 120px;
+}
+.addBtn::after {
+    content: "\f0fe";
+    font-family: "FontAwesome";
+    color: forestgreen;
+    cursor: pointer;
+    font-size: 30px;
+
+}
+
+.removeBtn::after {
+    content: "\f057";
+    font-family: "FontAwesome";
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+.radioLabel {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#talk::before {
+    content: "\f0e6";
+    font-family: "FontAwesome";
+    font-size: 50px;
+    color: #19a0da;
+    
+}
+
+#hat::before {
+    content: "\f19d";
+    font-family: "FontAwesome";
+    font-size: 50px;
+}
+
+#lightbulb::before {
+    content: "\f0eb";
+    font-family: "FontAwesome";
+    font-size: 50px;
+    color: darkgoldenrod;
+}
+
+/* Skill search list*/
+#searchSkillResult {
+    position: absolute;
+    left: 60%;
+    list-style-type: none;
+
+}
+
+
+#skillList ul {
+    border-radius: 5px;
+    text-align: left;
+    list-style: none;
+    color: black;
+    background-color: rgba(0, 0, 0, .3);
+    padding: 0;
+    text-indent: 3px;
+}
+
+#skillList ul li {
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+
+}
+#skillList ul li:hover {
+   
+    border-radius: 5px;
+    background-color: #19a0da;
+    color: white;
+    cursor: pointer;
+    
+}
+
+/* SUBMIT */
+#submit-div{
+    margin-top: 50px;
+}
+
+.loader{
+    margin-top: 20px;
+    border: 5px solid black; 
+    border-top: 5px solid #19a0da;
+}
+
+#facebook::before {
+    content: "\f082";
+    font-family: "FontAwesome";
+    font-size: 30px;
+    color: #3b5998;
+}
+
+#linkedin::before {
+    content: "\f08c";
+    font-family: "FontAwesome";
+    font-size: 30px;
+    color: #0073b0;
+}
+
+#social{
+    margin-top: 50px;
+}

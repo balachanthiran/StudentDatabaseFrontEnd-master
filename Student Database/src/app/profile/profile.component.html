@@ -1,0 +1,314 @@
+<div class="pic_base">
+</div>
+
+<div id="profile">
+
+    <table align="center">
+        <th id="languages">
+            <ul id="leftHeader"> </ul>
+        </th>
+        <th id="studies">
+            <div class="profilepic" *ngIf="canEdit()"> <input type='file' (change)="readUrl($event)" id="uploadinput" #file>
+                <i *ngIf="canEdit()" class="fa fa-pencil-square-o" for="uploadinput" id="pencilicon" aria- hidden="true" (click)="this.file.click()"> </i>
+                <img [src]="currentUser.image" *ngIf="currentUser?.image != null" class="image" (click)="this.file.click()">
+                <img src="img/profilepic.png" *ngIf="currentUser?.image == null" class="image" (click)="this.file.click()">
+            </div>
+
+            <div class="profilepic" *ngIf="!canEdit()">
+                <img [src]="currentUser.image" *ngIf="currentUser?.image != null" class="imagenohover">
+                <img src="img/profilepic.png" *ngIf="currentUser?.image == null" class="imagenohover">
+            </div>
+
+        </th>
+        <th>
+            <ul id="rightHeader"> </ul>
+        </th>
+    </table>
+
+    <table align="center">
+        <th id="languages">
+            <ul id="leftHeader"> </ul>
+        </th>
+        <th id="studies">
+            <div id="header">
+                <label *ngIf="!editMode" id="name">{{currentUser?.firstname}} {{currentUser?.lastname}}</label>
+                <input *ngIf="editMode" id="nameEdit" type=text [(ngModel)]="currentUser.firstname">
+            </div>
+
+            <div id="tableContainer" align="center">
+                <table id="tblInfo">
+                    <tr>
+                        <td> <label id="envelope">&nbsp; Email</label></td>
+                        <td *ngIf="!editMode">{{currentUser?.email}}</td>
+                        <input *ngIf="editMode" [(ngModel)]="currentUser.email">
+                    </tr>
+
+                    <tr>
+                        <td><label id="university">&nbsp;City</label></td>
+                        <td *ngIf="!editMode">{{currentUser?.city}}</td>
+                        <input *ngIf="editMode" [(ngModel)]="currentUser.city">
+                    </tr>
+
+                    <tr>
+                        <td><label id="flag">&nbsp; Nationality</label></td>
+                        <td>{{currentUser?.nationality}}</td>
+                    </tr>
+
+                    <tr>
+                        <td><label id="birthdayCake">&nbsp; Birthday</label></td>
+                        <td>{{currentUser?.birthday | date}}</td>
+                    </tr>
+
+                    <tr>
+                        <td><label id="gender">&nbsp; Gender</label></td>
+                        <td>{{currentUser?.gender}}</td>
+                    </tr>
+                    <tr *ngIf="!canEdit()">
+                        <td><label id="facultyHat">&nbsp;Faculty</label></td>
+                        <td>{{faculty}}</td>
+
+                    </tr>
+                    <tr *ngIf="!canEdit()">
+                        <td><label id="book">&nbsp; Line of Study</label></td>
+                        <td>{{study}}</td>
+
+                    </tr>
+                </table>
+                
+                <!-- Facebook & linkedin link-->
+                <div *ngIf="!canEdit()">
+                    <a id="facebook" href="https://www.facebook.com/{{facebookurl}}" target="_blank"></a>
+                    <a id="linkedin" href="https://www.linkedin.com/in/{{linkedinurl}}" target="_blank"></a>
+                </div>
+
+                <div *ngIf="canEdit()">
+                    <label id="facebook">Facebook.com/</label>
+                    <input #facebook="ngModel" class="linkInput" type="text" (keydown.enter)="updateSocial()" placeholder="Your profile" [(ngModel)]="facebookurl">
+                </div>
+                <div *ngIf="canEdit()">
+                    <label id="linkedin">LinkedIn.com/in/</label>
+                    <input #linkedIn="ngModel" class="linkInput" type="text" (keydown.enter)="updateSocial()" placeholder="Your profile" [(ngModel)]="linkedinurl">
+                </div>
+
+
+            </div>
+        </th>
+        <th>
+            <ul id="rightHeader"> </ul>
+        </th>
+    </table>
+
+
+
+
+
+
+    <table id="additionalinfocontainer" align="center">
+        <!-- LANGUAGE -->
+        <th id="languages">
+            <div>
+                <h2 id="talk">&nbsp; Languages</h2>
+            </div>
+            <div>
+                <ul id="languageList" *ngIf="languageArray.length">
+                    <li class="chip" *ngFor="let language of languageArray; let i = index">
+                        <label for="language">{{language.name}}&nbsp;</label>
+                        <span *ngIf="canEdit()" class="removeBtn" (click)="removeLanguage(i)"></span>
+                        <br>
+
+                        <label *ngIf="canEdit()" class="radioLabel">
+                        <input #low type="radio" name="languageLevel{{i}}" value="low" [checked]="checkLanguageLevel(i, low.value)" (click)="addLanguageLevel(low.value, i)">
+                        Limited
+                        </label>
+
+                        <label *ngIf="canEdit()" class="radioLabel">
+                        <input #medium type="radio" name="languageLevel{{i}}" value="medium" [checked]="checkLanguageLevel(i, medium.value)" (click)="addLanguageLevel(medium.value, i)">
+                        Intermediate
+                        </label>
+
+                        <label *ngIf="canEdit()" class="radioLabel">
+                        <input #high type="radio" name="languageLevel{{i}}" value="high" [checked]="checkLanguageLevel(i, high.value)" (click)="addLanguageLevel(high.value, i)"> 
+                        Fluent
+                        </label>
+
+                        <label id="languageLevel" *ngIf="!canEdit()">
+                            {{getLanguageLevel(i)}}
+                        </label>
+                    </li>
+
+                    <div>
+                        <label *ngIf="canEdit()" id="languageLabel">Add More</label>
+                    </div>
+                </ul>
+            </div>
+            <div>
+                <h2 *ngIf="!languageArray.length">No languages added yet!</h2>
+                <select *ngIf="canEdit()" #selectedLanguage name="selectedLanguage" (change)="addLanguage(selectedLanguage.value)" ngModel>
+                <option value="" disabled>Choose One or More Languages...</option>
+                <option value="Afrikaans">Afrikaans</option>
+                <option value="Albanian">Albanian</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Armenian">Armenian</option>
+                <option value="Basque">Basque</option>
+                <option value="Bengali">Bengali</option>
+                <option value="Bulgarian">Bulgarian</option>
+                <option value="Catalan">Catalan</option>
+                <option value="Cambodian">Cambodian</option>
+                <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+                <option value="Croation">Croation</option>
+                <option value="Czech">Czech</option>
+                <option value="Danish">Danish</option>
+                <option value="Dutch">Dutch</option>
+                <option value="English">English</option>
+                <option value="Estonian">Estonian</option>
+                <option value="Fiji">Fiji</option>
+                <option value="Finnish">Finnish</option>
+                <option value="French">French</option>
+                <option value="Georgian">Georgian</option>
+                <option value="German">German</option>
+                <option value="Greek">Greek</option>
+                <option value="Gujarati">Gujarati</option>
+                <option value="Hebrew">Hebrew</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Hungarian">Hungarian</option>
+                <option value="Icelandic">Icelandic</option>
+                <option value="Indonesian">Indonesian</option>
+                <option value="Irish">Irish</option>
+                <option value="Italian">Italian</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Javanese">Javanese</option>
+                <option value="Korean">Korean</option>
+                <option value="Latin">Latin</option>
+                <option value="Latvian">Latvian</option>
+                <option value="Lithuanian">Lithuanian</option>
+                <option value="Macedonian">Macedonian</option>
+                <option value="Malay">Malay</option>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Maltese">Maltese</option>
+                <option value="Maori">Maori</option>
+                <option value="Marathi">Marathi</option>
+                <option value="Mongolian">Mongolian</option>
+                <option value="Nepali">Nepali</option>
+                <option value="Norwegian">Norwegian</option>
+                <option value="Persian">Persian</option>
+                <option value="Polish">Polish</option>
+                <option value="Portuguese">Portuguese</option>
+                <option value="Punjabi">Punjabi</option>
+                <option value="Quechua">Quechua</option>
+                <option value="Romanian">Romanian</option>
+                <option value="Russian">Russian</option>
+                <option value="Samoan">Samoan</option>
+                <option value="Serbian">Serbian</option>
+                <option value="Slovak">Slovak</option>
+                <option value="Slovenian">Slovenian</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Swahili">Swahili</option>
+                <option value="Swedish ">Swedish </option>
+                <option value="Tamil">Tamil</option>
+                <option value="Tatar">Tatar</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Thai">Thai</option>
+                <option value="Tibetan">Tibetan</option>
+                <option value="Tonga">Tonga</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Ukranian">Ukranian</option>
+                <option value="Urdu">Urdu</option>
+                <option value="Uzbek">Uzbek</option>
+                <option value="Vietnamese">Vietnamese</option>
+                <option value="Welsh">Welsh</option>
+                <option value="Xhosa">Xhosa</option>
+            </select>
+            </div>
+        </th>
+
+
+        <!-- LINE OF STUDY -->
+        <th id="studies" *ngIf="canEdit()">
+
+            <div>
+                <h2 id="hat">&nbsp; Study</h2>
+            </div>
+
+            <div>
+                <select #selectedFaculty="ngModel" name="selectedFaculty" (change)="selectFaculty(selectedFaculty.value)" [(ngModel)]="faculty"> 
+                <option value="" disabled>Choose a Faculty...</option>
+                <option value="Faculty of Engineering">Faculty of Engineering</option>
+                <option value="Faculty of Health Sciences">Faculty of Health Sciences</option>
+                <option value="Faculty of Humanities">Faculty of Humanities</option>
+                <option value="Faculty of Science">Faculty of Science</option>
+                <option value="Faculty of Business and Social Sciences">Faculty of Business and Social Sciences</option>
+                <option value="Other...">Other..</option>
+            </select>
+            </div>
+
+            <div>
+                <select #selectedStudy="ngModel" name="selectedStudy" (change)="updateEducation()" [(ngModel)]="study">
+                    <option value="" disabled>Choose a Line of Study...</option>
+                    <option *ngFor="let study of engineeringStudies" [value]="study" [hidden]="engineeringStudyList">{{study}}</option>
+                    <option *ngFor="let study of healthScienceStudies" [value]="study" [hidden]="healthScienceStudyList">{{study}}</option>
+                    <option *ngFor="let study of humanitiesStudies" [value]="study" [hidden]="humanitiesStudyList">{{study}}</option>
+                    <option *ngFor="let study of scienceStudies" [value]="study" [hidden]="scienceStudyList">{{study}}</option>
+                    <option *ngFor="let study of socialScienceStudies" [value]="study" [hidden]="socialScienceStudyList">{{study}}</option>
+                </select>
+                <div *ngIf="!otherStudy">
+                    <input id="otherStudyField" [value]="" (keyup)="otherLineOfStudy($event)" placeholder="Enter Your Line of Study">
+                </div>
+            </div>
+        </th>
+
+        <!-- SKILLS -->
+        <th id="skills">
+            <div>
+                <h2 id="lightbulb">&nbsp; Skills</h2>
+            </div>
+            <h2 *ngIf="!skillArray.length">No Skills added yet!</h2>
+            <div>
+                <ul class="skillList" *ngIf="skillArray.length">
+                    <li class="chip" *ngFor="let skill of skillArray; let i = index">
+                        {{skill.name}}&nbsp;
+                        <span *ngIf="canEdit()" class="removeBtn" (click)="removeSkill(i)"></span>
+                        <br>
+
+                        <label *ngIf="canEdit()" class="radioLabel">
+                        <input #low type="radio" name="skillLevel{{i}}" value="low" [checked]="checkSkillLevel(i, low.value)" (click)="addSkillLevel(low.value, i)">
+                        Beginner
+                        </label>
+
+                        <label *ngIf="canEdit()" class="radioLabel">
+                        <input #medium type="radio" name="skillLevel{{i}}" value="medium" [checked]="checkSkillLevel(i, medium.value)" (click)="addSkillLevel(medium.value, i)">
+                        Advanced
+                        </label>
+
+                        <label *ngIf="canEdit()" class="radioLabel">
+                        <input #high type="radio" name="skillLevel{{i}}" value="high"  [checked]="checkSkillLevel(i, high.value)" (click)="addSkillLevel(high.value, i)">
+                        Expert
+                        </label>
+
+                        <label id="skillLevel" *ngIf="!canEdit()">
+                            {{getSkillLevel(i)}}
+                        </label>
+                    </li>
+                </ul>
+                <ul class="skillList" *ngIf="canEdit()">
+                    <li id="skillInput">
+
+                    <input #newSkill [hidden]="!canEdit()" type="text" id="skillInputField" placeholder="Type your skills here" (keydown.enter)="addToSkill(newSkill)"
+                            (keyup)="findSkill($event)">
+
+
+                        <span [hidden]="!canEdit()" class="addBtn" (click)="addToSkill(newSkill)"></span>
+                    </li>
+
+                    <ul id="newSkillList">
+                        <li #selectedSkill class="skillItem" *ngFor="let skill of skillSearchResult" (click)="chooseSkill(selectedSkill.innerText, newSkill)">
+                            {{skill}}
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </th>
+
+
+    </table>
+
+</div>

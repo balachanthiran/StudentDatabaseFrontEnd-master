@@ -1,0 +1,15 @@
+#pagenotfound {
+	text-align: center;
+}
+
+#pagenotfound p {
+	font-size: 44px;
+	font-family: sans-serif
+}
+
+#pagenotfound a {
+	font-size: 66px;
+	color: #19a0da;
+	font-family: sans-serif;
+
+}

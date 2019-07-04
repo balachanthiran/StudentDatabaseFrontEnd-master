@@ -1,0 +1,52 @@
+<div id="searchContainer">
+    <h2>Your search yielded {{resultCount}} results</h2>
+    <div id="pagesContainer">
+           <span [class.selected]="currentPage == i" *ngFor="let page of searchPages; let i = index" (click)="setPage(i)">{{i+1}}</span>
+    </div>
+    <div class="searchPageContainer" *ngFor="let page of searchPages; let i = index">
+        <div class="searchPage" *ngIf="currentPage == i">
+            <div class="searchResult" *ngFor="let result of page">
+                    <input #checkbox type="checkbox" (click)="checkProfile(checkbox, result.user)">
+                    <table align="center">
+                        <th id="usercolumn">
+                            <ul id="userlist"> 
+                                <li class="searchlistitem" id="resultName">&nbsp;{{result?.user.firstname}} {{result?.user.lastname}}</li>
+                                <li class="searchlistitem" id="resultEmail">&nbsp;{{result?.user.email}}</li>
+                                <li class="searchlistitem" id="resultCity">&nbsp;{{result?.user.city}}</li>
+                                <li class="searchlistitem" id="resultBirthday">&nbsp;{{result?.user.birthday | date}}</li>
+                                <li class="searchlistitem" id="resultNationality">&nbsp;{{result?.user.nationality}}</li>
+                                <li class="searchlistitem" id="resultGender">&nbsp;{{result?.user.gender}}</li>
+                                <li class="searchlistitem" id="resultStudy">&nbsp;{{result?.study}}</li>
+                            </ul>
+                        </th>
+                        <th id="skillscolumn">
+                            <ul id="skillslist">
+                                <h2>Skills</h2>
+                                <li *ngFor="let skill of result.skills">{{skill}}</li>
+                            </ul>
+                        </th>
+                        <th id="languagescolumn">
+                            <ul id="languageslist"> 
+                                <h2>Languages</h2>
+                                <li *ngFor="let language of result.languages">{{language}}</li>
+                            </ul>
+                        </th>
+                    </table>
+           
+                <div id="button-container">
+                    <button (click)="viewProfile(result.user.userID)"class="btn-submit">View Profile</button>
+                    <button (click)="sendMail(result.user)" class="btn-submit">Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div id="pagesContainerBottom">
+           <span [class.selected]="currentPage == i" *ngFor="let page of searchPages; let i = index" (click)="setPage(i)">{{i+1}}</span>
+    </div>
+    <div id="contactAll" *ngIf="contactArray.length">
+        <p>Selected users:</p>
+        <p *ngFor="let contact of contactArray">{{contact.firstname}} {{contact.lastname}}</p>
+        <button class="btn-submit" (click)="contactAll()">Contact All</button>
+    </div>
+</div>
